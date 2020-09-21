@@ -1,0 +1,27 @@
+repos:
+    -   repo: https://github.com/psf/black
+        rev: 20.8b0
+        hooks:
+        -   id: black
+            args: ['--line-length=80']
+    -   repo: https://github.com/PyCQA/isort
+        rev: 4.3.21
+        hooks:
+        -   id: isort
+            args: [
+                '-up','-fgw=0',
+                '--skip=env','--skip=migrations',
+                '-w=80','--m=3',
+                '-tc'
+            ]
+    -   repo: https://github.com/pycqa/pylint
+        rev: pylint-2.5.3
+        hooks:
+        -   id: pylint
+    -   repo: https://github.com/PyCQA/flake8
+        rev: 3.8.3
+        hooks:
+        -   id: flake8
+            args: [
+                '--max-line-length=80','--exclude=env,migrations',
+            ]
